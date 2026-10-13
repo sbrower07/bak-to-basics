@@ -1,0 +1,33 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_SA_PASSWORD: "YourStrong!Passw0rd"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./backups:/var/opt/mssql/backups
+      - sqlserver-data:/var/opt/mssql
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./scripts:/scripts
+    profiles: ["postgres"]
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: demo
+    ports:
+      - "3306:3306"
+    profiles: ["mysql"]
+
+volumes:
+  sqlserver-data:
