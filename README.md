@@ -9,19 +9,19 @@ Local, repeatable database setup for following along with the videos. Everything
 ## What you'll need
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or Docker Engine + Compose plugin on Linux)
-- ~[FILL IN] GB of free disk space
+- ~10 GB of free disk space
 - The backup file: **[AdventureWorks2022.bak](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)** (place it in the `backups/` folder)
 - Optional: a SQL client such as Azure Data Studio, SSMS, DBeaver, or `sqlcmd`
 
-**Platform notes:** [FILL IN: platforms you've tested]. On Apple Silicon Macs the SQL Server image runs under emulation and may be slow or unstable.
+**Platform notes:** I have tested this on Windows Machine. On Apple Silicon Macs the SQL Server image runs under emulation and may be slow or unstable.
 
 ## Quick start
 
 Every command below works as written in Windows (PowerShell or Command Prompt), macOS Terminal, and Linux shells. Each command is a single line, so paste the whole line.
 
 ```bash
-git clone [FILL IN: repo URL]
-cd [FILL IN: repo folder]
+git clone https://github.com/sbrower07/bak-to-basics.git
+cd bak-to-basics
 
 # 1. Put the backup file in ./backups/
 # 2. Start SQL Server
@@ -176,6 +176,3 @@ Then run through Quick start again for a clean slate.
 - **Postgres says `/scripts/postgres/01_create_jde_source.sql: No such file or directory`:** the Postgres container was created before the `scripts` folder was mounted. Run `docker compose --profile postgres up -d` again so it is recreated with the mount.
 
 ## Links
-
-- Video walkthrough: [FILL IN]
-- [FILL IN: anything else]
